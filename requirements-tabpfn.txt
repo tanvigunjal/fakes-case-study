@@ -1,0 +1,3 @@
+numpy>=1.26
+# Official TabPFN package. The repo uses the v2 weights via ModelVersion.V2.
+tabpfn>=2.0
