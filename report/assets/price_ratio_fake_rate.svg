@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420">
+<rect width="100%" height="100%" fill="#f8f7f4"/>
+<text x="40" y="36" font-size="24" font-family="Georgia, serif" fill="#1f2937">Fake Rate by Transaction-to-Confirmed Price Ratio</text>
+<text x="40" y="58" font-size="13" font-family="Arial, sans-serif" fill="#6b7280">Listings priced well above confirmed references are materially riskier.</text>
+<text x="188" y="114" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151"><0.8x</text>
+<rect x="200" y="70" width="426" height="48" rx="5" fill="#1d4ed8"/>
+<text x="634" y="114" font-size="12" font-family="Arial, sans-serif" fill="#111827">9.7%</text>
+<text x="188" y="172" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">0.8-1.0x</text>
+<rect x="200" y="128" width="414" height="48" rx="5" fill="#1d4ed8"/>
+<text x="622" y="172" font-size="12" font-family="Arial, sans-serif" fill="#111827">9.5%</text>
+<text x="188" y="230" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">1.0-1.2x</text>
+<rect x="200" y="186" width="503" height="48" rx="5" fill="#1d4ed8"/>
+<text x="711" y="230" font-size="12" font-family="Arial, sans-serif" fill="#111827">11.5%</text>
+<text x="188" y="288" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">>=1.2x</text>
+<rect x="200" y="244" width="640" height="48" rx="5" fill="#1d4ed8"/>
+<text x="848" y="288" font-size="12" font-family="Arial, sans-serif" fill="#111827">14.6%</text>
+<text x="188" y="346" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">missing</text>
+<rect x="200" y="302" width="603" height="48" rx="5" fill="#1d4ed8"/>
+<text x="811" y="346" font-size="12" font-family="Arial, sans-serif" fill="#111827">13.8%</text>
+</svg>

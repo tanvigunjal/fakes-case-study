@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="348" viewBox="0 0 750 348">
+<rect width="100%" height="100%" fill="#f8f7f4"/>
+<text x="40" y="38" font-size="24" font-family="Georgia, serif" fill="#1f2937">Heatmap: Fulfillment x Delivery Risk</text>
+<text x="40" y="60" font-size="13" font-family="Arial, sans-serif" fill="#6b7280">The missing-delivery shortcut is especially severe inside BUSINESS and CENTRAL flows.</text>
+<text x="290.0" y="92" text-anchor="middle" font-size="12" font-family="Arial, sans-serif" fill="#374151"><MISSING></text>
+<text x="450.0" y="92" text-anchor="middle" font-size="12" font-family="Arial, sans-serif" fill="#374151">DIRECT</text>
+<text x="610.0" y="92" text-anchor="middle" font-size="12" font-family="Arial, sans-serif" fill="#374151">PRIME</text>
+<text x="198" y="144" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">BUSINESS</text>
+<rect x="210" y="110" width="152" height="48" rx="8" fill="rgb(168,85,36)"/>
+<text x="286.0" y="140" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">80.0%</text>
+<rect x="370" y="110" width="152" height="48" rx="8" fill="rgb(241,222,210)"/>
+<text x="446.0" y="140" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">7.1%</text>
+<rect x="530" y="110" width="152" height="48" rx="8" fill="rgb(239,218,205)"/>
+<text x="606.0" y="140" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">9.2%</text>
+<text x="198" y="200" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">CENTRAL</text>
+<rect x="210" y="166" width="152" height="48" rx="8" fill="rgb(175,98,53)"/>
+<text x="286.0" y="196" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">73.1%</text>
+<rect x="370" y="166" width="152" height="48" rx="8" fill="rgb(243,225,213)"/>
+<text x="446.0" y="196" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">5.7%</text>
+<rect x="530" y="166" width="152" height="48" rx="8" fill="rgb(241,222,210)"/>
+<text x="606.0" y="196" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">7.1%</text>
+<text x="198" y="256" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">MARKETPLACE</text>
+<rect x="210" y="222" width="152" height="48" rx="8" fill="rgb(216,175,150)"/>
+<text x="286.0" y="252" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">32.1%</text>
+<rect x="370" y="222" width="152" height="48" rx="8" fill="rgb(241,221,208)"/>
+<text x="446.0" y="252" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">7.9%</text>
+<rect x="530" y="222" width="152" height="48" rx="8" fill="rgb(238,215,200)"/>
+<text x="606.0" y="252" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#111827">11.0%</text>
+</svg>

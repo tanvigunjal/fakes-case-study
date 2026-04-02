@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fakes Case Study Executive Summary</title>
+  <style>
+    @page { size: A4 landscape; margin: 0; }
+    :root {
+      --brand-blue: #0101f3;
+      --brand-blue-soft: #2d62ff;
+      --brand-pink: #dd23bb;
+      --ink: #0f1020;
+      --ink-soft: #30324a;
+      --paper: #f8f7f4;
+      --card: #ffffff;
+      --line: #dfe3ef;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Epilogue", "Helvetica Neue", Arial, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body { counter-reset: slide; }
+    .deck {
+      width: 297mm;
+      margin: 0 auto;
+    }
+    .slide {
+      position: relative;
+      width: 297mm;
+      height: 210mm;
+      padding: 18mm 18mm 16mm;
+      page-break-after: always;
+      background: var(--paper);
+      overflow: hidden;
+      counter-increment: slide;
+    }
+    .slide:last-child { page-break-after: auto; }
+    .slide::after {
+      content: counter(slide, decimal-leading-zero);
+      position: absolute;
+      right: 14mm;
+      bottom: 10mm;
+      font-size: 10pt;
+      color: rgba(15,16,32,0.45);
+      letter-spacing: 0.18em;
+      font-weight: 600;
+    }
+    .hero,
+    .inverse {
+      background: linear-gradient(145deg, #0d0f1e 0%, #151941 58%, #0101f3 100%);
+      color: white;
+    }
+    .hero::before,
+    .inverse::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(221,35,187,0.35), transparent 22%),
+        radial-gradient(circle at 78% 82%, rgba(45,98,255,0.42), transparent 18%),
+        linear-gradient(90deg, rgba(255,255,255,0.06), transparent 40%);
+      pointer-events: none;
+    }
+    .brandbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18mm;
+      position: relative;
+      z-index: 1;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11pt;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-weight: 700;
+    }
+    .brand-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--brand-pink);
+      box-shadow: 0 0 0 8px rgba(221,35,187,0.14);
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px 6px;
+      border-radius: 999px;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      background: rgba(1,1,243,0.10);
+      color: var(--brand-blue);
+    }
+    .inverse .eyebrow {
+      background: rgba(255,255,255,0.10);
+      color: white;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-size: 30pt;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 210mm;
+      position: relative;
+      z-index: 1;
+    }
+    h2 {
+      font-size: 22pt;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin-top: 8mm;
+      margin-bottom: 8mm;
+    }
+    h3 {
+      font-size: 12pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+    .inverse h3 { color: rgba(255,255,255,0.76); }
+    .lead {
+      margin-top: 8mm;
+      max-width: 190mm;
+      font-size: 13pt;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.84);
+      position: relative;
+      z-index: 1;
+    }
+    .subtitle {
+      margin-top: 5mm;
+      font-size: 12pt;
+      line-height: 1.45;
+      max-width: 175mm;
+      color: var(--ink-soft);
+    }
+    .inverse .subtitle { color: rgba(255,255,255,0.82); }
+    .hero-grid {
+      margin-top: 16mm;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 10mm;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-stack {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      align-content: start;
+    }
+    .stat-card {
+      padding: 14px 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(7px);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 23pt;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-card span {
+      font-size: 10pt;
+      line-height: 1.35;
+      color: rgba(255,255,255,0.76);
+    }
+    .section {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+    .col-7 { grid-column: span 7; }
+    .col-5 { grid-column: span 5; }
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 4; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 14px 16px;
+      box-shadow: 0 12px 35px rgba(15,16,32,0.06);
+    }
+    .inverse .card {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.10);
+      box-shadow: none;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 6mm;
+    }
+    .metric {
+      padding: 14px 14px 13px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff, #f3f5fb);
+      border: 1px solid var(--line);
+    }
+    .metric .value {
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--brand-blue);
+      margin-bottom: 6px;
+    }
+    .metric .label {
+      font-size: 10pt;
+      line-height: 1.35;
+      color: var(--ink-soft);
+    }
+    .bullets {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 11pt;
+      line-height: 1.55;
+    }
+    .bullets li { margin-bottom: 10px; }
+    .bullets strong { color: var(--brand-blue); }
+    .chart-grid {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .chart-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 10px;
+      min-height: 70mm;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .chart-card img {
+      width: 100%;
+      height: auto;
+      max-height: 56mm;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .caption {
+      font-size: 9pt;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+      line-height: 1.35;
+    }
+    thead th {
+      padding: 0 0 8px;
+      text-align: left;
+      color: var(--muted);
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+    }
+    tbody td {
+      padding: 10px 0;
+      border-bottom: 1px solid #eceff7;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    .strip {
+      margin-top: 10mm;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill {
+      padding: 8px 12px 7px;
+      border-radius: 999px;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(1,1,243,0.08);
+      color: var(--brand-blue);
+    }
+    .pill.pink { background: rgba(221,35,187,0.10); color: #a01986; }
+    .pill.dark { background: rgba(15,16,32,0.08); color: var(--ink); }
+    .quote {
+      font-size: 21pt;
+      line-height: 1.24;
+      letter-spacing: -0.03em;
+      max-width: 225mm;
+      margin-top: 22mm;
+      position: relative;
+      z-index: 1;
+    }
+    .mini-grid {
+      margin-top: 8mm;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .mini-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      padding: 14px 15px;
+      min-height: 50mm;
+    }
+    .mini-card strong {
+      display: block;
+      font-size: 16pt;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+    .mini-card p {
+      font-size: 10pt;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.82);
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide hero">
+      <div class="brandbar">
+        <div class="brand"><span class="brand-dot"></span>statworx-inspired presentation</div>
+        <div class="eyebrow">Fake Listing Detection</div>
+      </div>
+      <h1>Don’t buy a fake.<br />A stakeholder-ready view of the marketplace risk landscape.</h1>
+      <p class="lead">Phase 1 turns the raw assignment into an executive narrative: where the strongest signals sit, where the biggest evaluation traps hide, and why a TabPFN v2 baseline is the fastest credible modeling move for this dataset.</p>
+      <div class="hero-grid">
+        <div>
+          <div class="strip">
+            <span class="pill">11,358 transactions</span>
+            <span class="pill pink">10.7% fake rate</span>
+            <span class="pill dark">522 exact duplicates</span>
+          </div>
+          <p class="subtitle">The dataset is not huge, but it is operationally messy: repeated products, shortcut-heavy review text, and process metadata that can overwhelm more stable product-quality signals if we evaluate carelessly.</p>
+        </div>
+        <div class="stat-stack">
+          <div class="stat-card"><strong>80.0%</strong><span>Fake rate for <em>BUSINESS + missing delivery metadata</em>, the single sharpest interaction slice.</span></div>
+          <div class="stat-card"><strong>89.1%</strong><span>Fake rate when the top review explicitly says <em>1/5 stars</em>.</span></div>
+          <div class="stat-card"><strong>15.4%</strong><span>Fake rate when review stars are missing or unparseable.</span></div>
+          <div class="stat-card"><strong>14.6%</strong><span>Fake rate once transaction price exceeds 1.2x confirmed price.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Dataset at a glance</div>
+      <h2>The problem is manageable in size, but the data behaves more like a production system than a toy benchmark.</h2>
+      <div class="section">
+        <div class="col-7">
+          <div class="metric-grid">
+            <div class="metric"><div class="value">11,358</div><div class="label">Marketplace transactions available for modeling</div></div>
+            <div class="metric"><div class="value">10.7%</div><div class="label">Observed positive rate for the `Fake` target</div></div>
+            <div class="metric"><div class="value">19.1%</div><div class="label">Rows with missing `top_review`</div></div>
+            <div class="metric"><div class="value">9.7%</div><div class="label">Rows with missing `Brand`</div></div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="card">
+            <h3>What matters immediately</h3>
+            <ul class="bullets">
+              <li><strong>Mixed modality:</strong> numeric, categorical, date, and text all contribute signal.</li>
+              <li><strong>Heavy repetition:</strong> products recur so often that naive random splits would be misleading.</li>
+              <li><strong>Missingness is informative:</strong> process fields are not missing at random.</li>
+              <li><strong>Shortcut risk is real:</strong> review-star language and delivery metadata can dominate offline scores.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="chart-grid" style="margin-top: 10mm;">
+        <div class="chart-card">
+          <img src="assets/purchase_year_fake_rate.svg" alt="Purchase year fake rate" />
+          <div class="caption">Recent purchase cohorts are not uniformly safer; the portfolio still carries persistent fake exposure across years.</div>
+        </div>
+        <div class="chart-card">
+          <img src="assets/market_vintage_fake_rate.svg" alt="Product vintage fake rate" />
+          <div class="caption">Older product vintages are materially more counterfeit-prone than newer platform vintages.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Executive findings</div>
+      <h2>The strongest predictors are useful, but some of them are dangerously close to workflow artifacts.</h2>
+      <div class="section">
+        <div class="col-6">
+          <div class="card">
+            <h3>What we learned</h3>
+            <ul class="bullets">
+              <li><strong>Review stars are explosive:</strong> `1/5 stars` pushes fake rate to 89.1%.</li>
+              <li><strong>Missing delivery data is risky:</strong> overall fake rate jumps to 63.5% when delivery category is absent.</li>
+              <li><strong>Pricing is not just “cheap = fake”:</strong> aggressive overpricing relative to confirmed references is also suspicious.</li>
+              <li><strong>Products repeat constantly:</strong> the same names appear over and over, which can inflate apparent generalization.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <h3>Business implication</h3>
+            <p class="subtitle" style="margin-top:0; max-width:none;">A high-scoring model can still be brittle if it mainly learns workflow shortcuts. The job is not just to predict fake listings; it is to predict them for the right reasons and in a way that survives new products, new merchants, and new review patterns.</p>
+            <div class="strip">
+              <span class="pill">Entity leakage risk</span>
+              <span class="pill pink">Metadata shortcut risk</span>
+              <span class="pill dark">Policy review needed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-grid" style="margin-top: 10mm; grid-template-columns: 1fr 1fr 1fr;">
+        <div class="chart-card">
+          <img src="assets/delivery_category_fake_rate.svg" alt="Delivery category fake rate" />
+          <div class="caption">Delivery metadata is not just predictive; it is potentially encoding process behavior.</div>
+        </div>
+        <div class="chart-card">
+          <img src="assets/review_star_fake_rate.svg" alt="Review star fake rate" />
+          <div class="caption">Review-star text behaves like a near-shortcut and must be ablated later.</div>
+        </div>
+        <div class="chart-card">
+          <img src="assets/price_ratio_fake_rate.svg" alt="Price ratio fake rate" />
+          <div class="caption">Listings above the confirmed-price reference look riskier than those near parity.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide inverse">
+      <div class="brandbar">
+        <div class="brand"><span class="brand-dot"></span>interaction analysis</div>
+        <div class="eyebrow">Where the trap is</div>
+      </div>
+      <p class="quote">The single most important pattern in this dataset is not a standalone column. It is the interaction between <strong>fulfillment mode</strong> and <strong>missing delivery metadata</strong>.</p>
+      <div class="mini-grid">
+        <div class="mini-card"><strong>BUSINESS + missing</strong><p>80.0% fake rate across 155 rows. This is far beyond the base rate and likely reflects a workflow state, not just a product signal.</p></div>
+        <div class="mini-card"><strong>CENTRAL + missing</strong><p>73.1% fake rate across 160 rows. The same pattern repeats in another operational channel, strengthening the shortcut hypothesis.</p></div>
+        <div class="mini-card"><strong>MARKETPLACE + missing</strong><p>32.1% fake rate across 131 rows. Still risky, but notably less extreme than BUSINESS or CENTRAL.</p></div>
+      </div>
+      <div class="chart-grid" style="margin-top: 9mm; grid-template-columns: 1.1fr 0.9fr;">
+        <div class="chart-card" style="background: rgba(255,255,255,0.92);">
+          <img src="assets/fulfillment_delivery_interaction.svg" alt="Fulfillment delivery interaction" />
+          <div class="caption">Ranked interaction slices highlight how quickly the risk spikes once delivery metadata disappears.</div>
+        </div>
+        <div class="chart-card" style="background: rgba(255,255,255,0.92);">
+          <img src="assets/fulfillment_delivery_heatmap.svg" alt="Fulfillment delivery heatmap" />
+          <div class="caption">The heatmap makes the structure obvious: the missing-delivery state behaves very differently across flows.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">Evaluation reality</div>
+      <h2>This dataset can flatter a model very easily. The evaluation design matters as much as the algorithm choice.</h2>
+      <div class="section">
+        <div class="col-5">
+          <div class="card">
+            <h3>Why random rows are dangerous</h3>
+            <ul class="bullets">
+              <li><strong>11,177 rows</strong> belong to repeated product names.</li>
+              <li>The same product families appear across both classes.</li>
+              <li>Entity repetition means a random split can quietly teach the model product identity instead of counterfeit behavior.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="card">
+            <h3>Recommended evaluation policy</h3>
+            <table>
+              <thead><tr><th>Area</th><th>Recommendation</th></tr></thead>
+              <tbody>
+                <tr><td>Primary split</td><td>Use a temporal holdout on `PurchDate` instead of naive random rows.</td></tr>
+                <tr><td>Robustness check</td><td>Run a grouped split by `Brand + ProductName` to quantify entity leakage.</td></tr>
+                <tr><td>Cleaning</td><td>Remove exact duplicates and quarantine conflicting duplicate-like rows.</td></tr>
+                <tr><td>Primary metric</td><td>Use PR-AUC and operating-threshold precision/recall, not accuracy alone.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card" style="margin-top: 12px;">
+            <h3>Core takeaway</h3>
+            <p class="subtitle" style="margin-top:0; max-width:none;">The model that wins this case study is not the one with the flashiest architecture. It is the one that keeps evaluation honest and avoids overclaiming on shortcut-heavy offline signals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">MVP model choice</div>
+      <h2>TabPFN v2 is the fastest credible baseline for this phase.</h2>
+      <div class="section">
+        <div class="col-7">
+          <div class="card">
+            <h3>Why TabPFN v2 fits this case</h3>
+            <ul class="bullets">
+              <li><strong>No long training cycle:</strong> it gives us a strong foundation-model baseline immediately.</li>
+              <li><strong>Great for a take-home:</strong> small code surface, clear setup, and credible technical story.</li>
+              <li><strong>Works with scalar features:</strong> ideal once we convert text into lightweight review and length signals.</li>
+              <li><strong>Good bridge strategy:</strong> we can keep the PyTorch hybrid as the next upgrade only if TabPFN leaves headroom.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="card">
+            <h3>MVP feature blocks</h3>
+            <table>
+              <thead><tr><th>Block</th><th>Examples</th></tr></thead>
+              <tbody>
+                <tr><td>Numeric</td><td>prices, age, market year, date breakdown</td></tr>
+                <tr><td>Derived</td><td>price gaps, price ratios, missingness flags</td></tr>
+                <tr><td>Categorical</td><td>brand, city, zip, fulfillment, delivery</td></tr>
+                <tr><td>Text-derived scalar</td><td>review star value, lengths, keyword indicators</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="chart-grid" style="margin-top: 10mm; grid-template-columns: 1.1fr 0.9fr;">
+        <div class="chart-card">
+          <img src="assets/numeric_median_comparison.svg" alt="Numeric median comparison" />
+          <div class="caption">The median comparison chart shows why a scalar-feature baseline is already informative.</div>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column; justify-content:center; min-height:70mm;">
+          <h3>Important caveat</h3>
+          <p class="subtitle" style="margin-top:0; max-width:none;">Per TabPFN’s official guidance, GPU is preferred for larger datasets, while CPU is best treated as a smoke-test path unless we explicitly force a full large-dataset run.</p>
+          <div class="strip">
+            <span class="pill">GPU preferred</span>
+            <span class="pill dark">CPU smoke test</span>
+            <span class="pill pink">v2 weights</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="eyebrow">What ships now</div>
+      <h2>The repository is already positioned as a stakeholder-ready package, not just a notebook dump.</h2>
+      <div class="section">
+        <div class="col-4">
+          <div class="card">
+            <h3>EDA pipeline</h3>
+            <p class="subtitle" style="margin-top:0; max-width:none;">`src.eda` generates tables and SVGs for missingness, temporal drift, pricing, review shortcuts, and interaction slices.</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <h3>Reporting layer</h3>
+            <p class="subtitle" style="margin-top:0; max-width:none;">We ship both an executive summary and a technical report, plus this print-ready presentation deck.</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <h3>Modeling MVP</h3>
+            <p class="subtitle" style="margin-top:0; max-width:none;">`src.tabpfn_pipeline` provides the minimum viable inference workflow around TabPFN v2.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 12mm;">
+        <h3>Runbook</h3>
+        <table>
+          <thead><tr><th>Step</th><th>Command</th></tr></thead>
+          <tbody>
+            <tr><td>Generate analysis artifacts</td><td><code>python -m src.eda</code></td></tr>
+            <tr><td>Build the markdown report</td><td><code>python -m src.report</code></td></tr>
+            <tr><td>Run TabPFN smoke test</td><td><code>python -m src.tabpfn_pipeline --device cpu --max-train-rows 1000</code></td></tr>
+            <tr><td>Run full TabPFN on stronger hardware</td><td><code>python -m src.tabpfn_pipeline --device auto</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="slide inverse">
+      <div class="brandbar">
+        <div class="brand"><span class="brand-dot"></span>recommended next step</div>
+        <div class="eyebrow">Decision</div>
+      </div>
+      <p class="quote">Use TabPFN v2 as the first serious model, but keep the governance lens on. This dataset contains enough shortcut signal that the evaluation policy is part of the model design.</p>
+      <div class="mini-grid">
+        <div class="mini-card"><strong>1. Run the MVP</strong><p>Score the cleaned temporal split with TabPFN v2 and inspect validation/test outputs.</p></div>
+        <div class="mini-card"><strong>2. Stress-test shortcuts</strong><p>Re-run without review stars and without delivery metadata to measure reliance on brittle signals.</p></div>
+        <div class="mini-card"><strong>3. Upgrade only if needed</strong><p>If TabPFN leaves room, move to the custom PyTorch hybrid already scaffolded in the repo.</p></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420">
+<rect width="100%" height="100%" fill="#f8f7f4"/>
+<text x="40" y="36" font-size="24" font-family="Georgia, serif" fill="#1f2937">Fake Rate by Product Vintage</text>
+<text x="40" y="58" font-size="13" font-family="Arial, sans-serif" fill="#6b7280">Older product vintages are materially more counterfeit-prone than recent cohorts.</text>
+<text x="188" y="80" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2009</text>
+<rect x="200" y="70" width="640" height="14" rx="5" fill="#0f766e"/>
+<text x="848" y="80" font-size="12" font-family="Arial, sans-serif" fill="#111827">75.0%</text>
+<text x="188" y="104" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2010</text>
+<rect x="200" y="94" width="173" height="14" rx="5" fill="#0f766e"/>
+<text x="381" y="104" font-size="12" font-family="Arial, sans-serif" fill="#111827">20.3%</text>
+<text x="188" y="128" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2011</text>
+<rect x="200" y="118" width="172" height="14" rx="5" fill="#0f766e"/>
+<text x="380" y="128" font-size="12" font-family="Arial, sans-serif" fill="#111827">20.2%</text>
+<text x="188" y="152" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2012</text>
+<rect x="200" y="142" width="171" height="14" rx="5" fill="#0f766e"/>
+<text x="379" y="152" font-size="12" font-family="Arial, sans-serif" fill="#111827">20.1%</text>
+<text x="188" y="176" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2013</text>
+<rect x="200" y="166" width="138" height="14" rx="5" fill="#0f766e"/>
+<text x="346" y="176" font-size="12" font-family="Arial, sans-serif" fill="#111827">16.2%</text>
+<text x="188" y="200" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2014</text>
+<rect x="200" y="190" width="113" height="14" rx="5" fill="#0f766e"/>
+<text x="321" y="200" font-size="12" font-family="Arial, sans-serif" fill="#111827">13.3%</text>
+<text x="188" y="224" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2015</text>
+<rect x="200" y="214" width="95" height="14" rx="5" fill="#0f766e"/>
+<text x="303" y="224" font-size="12" font-family="Arial, sans-serif" fill="#111827">11.2%</text>
+<text x="188" y="248" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2016</text>
+<rect x="200" y="238" width="88" height="14" rx="5" fill="#0f766e"/>
+<text x="296" y="248" font-size="12" font-family="Arial, sans-serif" fill="#111827">10.4%</text>
+<text x="188" y="272" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2017</text>
+<rect x="200" y="262" width="66" height="14" rx="5" fill="#0f766e"/>
+<text x="274" y="272" font-size="12" font-family="Arial, sans-serif" fill="#111827">7.7%</text>
+<text x="188" y="296" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2018</text>
+<rect x="200" y="286" width="63" height="14" rx="5" fill="#0f766e"/>
+<text x="271" y="296" font-size="12" font-family="Arial, sans-serif" fill="#111827">7.4%</text>
+<text x="188" y="320" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2019</text>
+<rect x="200" y="310" width="59" height="14" rx="5" fill="#0f766e"/>
+<text x="267" y="320" font-size="12" font-family="Arial, sans-serif" fill="#111827">7.0%</text>
+<text x="188" y="344" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2020</text>
+<rect x="200" y="334" width="47" height="14" rx="5" fill="#0f766e"/>
+<text x="255" y="344" font-size="12" font-family="Arial, sans-serif" fill="#111827">5.5%</text>
+<text x="188" y="368" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2021</text>
+<rect x="200" y="358" width="87" height="14" rx="5" fill="#0f766e"/>
+<text x="295" y="368" font-size="12" font-family="Arial, sans-serif" fill="#111827">10.3%</text>
+<text x="188" y="392" text-anchor="end" font-size="12" font-family="Arial, sans-serif" fill="#374151">2022</text>
+<rect x="200" y="382" width="0" height="14" rx="5" fill="#0f766e"/>
+<text x="208" y="392" font-size="12" font-family="Arial, sans-serif" fill="#111827">0.0%</text>
+</svg>
