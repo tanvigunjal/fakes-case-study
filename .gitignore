@@ -1,0 +1,23 @@
+# Local dataset
+/data_fakes.csv
+
+# Generated outputs
+/artifacts/plots/*
+!/artifacts/plots/.gitkeep
+/artifacts/tables/*
+!/artifacts/tables/.gitkeep
+/report/*.generated.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
