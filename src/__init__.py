@@ -1,1 +1,1 @@
-"""Phase 1 package for the fakes case study."""
+"""Core package for the fake-listing detection project."""

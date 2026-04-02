@@ -5,7 +5,7 @@ from dataclasses import dataclass
 try:
     import torch
     from torch import nn
-except ModuleNotFoundError:  # pragma: no cover - optional dependency for Phase 1
+except ModuleNotFoundError:  # pragma: no cover - optional dependency
     torch = None
     nn = None
 

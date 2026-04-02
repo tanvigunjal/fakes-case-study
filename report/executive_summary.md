@@ -2,7 +2,7 @@
 
 ## Situation
 
-Amazing needs a practical way to identify likely fake listings on a marketplace platform. This Phase 1 submission focuses on understanding the data landscape, surfacing business-relevant risks, and preparing a clean foundation for a later modeling phase without requiring GPU training today.
+Amazing needs a practical way to identify likely fake listings on a marketplace platform. This summary focuses on the current data landscape, business-relevant risks, and the most practical modeling direction for immediate execution.
 
 ## Key Findings
 
@@ -130,7 +130,7 @@ Recommended order of operations:
 
 ## What We Would Do Next
 
-- Implement a CPU/GPU-ready PyTorch 2 training path using the existing stubs in this repo.
+- Implement a CPU/GPU-ready PyTorch 2 training path using the existing model stubs.
 - Compare tabular-only, text-only, and fused models under a temporal split.
 - Calibrate probabilities and define separate thresholds for auto-blocking versus manual review.
 - Stress-test the model without review stars and without delivery metadata to measure reliance on possible artifacts.

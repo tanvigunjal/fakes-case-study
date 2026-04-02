@@ -1,6 +1,6 @@
 # Fakes Case Study
 
-This repository contains a Phase 1 submission for the fake-listing detection case study.
+This repository contains a fake-listing detection project for marketplace risk analysis.
 
 The current repo now ships two concrete deliverables:
 
@@ -9,13 +9,13 @@ The current repo now ships two concrete deliverables:
 
 ## Included Deliverables
 
-- `01A_fakes.pdf`: original assignment brief
+- `01A_fakes.pdf`: original problem brief
 - `src/data.py`: data loading, schema validation, cleaning, duplicate detection
 - `src/eda.py`: exploratory analysis pipeline that writes CSV tables and SVG plots
 - `src/report.py`: executive summary generator
-- `src/tabpfn_pipeline.py`: runnable TabPFN v2 inference pipeline for this dataset
-- `src/features.py`: reusable feature engineering helpers for later modeling
-- `src/modeling_stub.py`: device-aware PyTorch 2 model scaffolds for a later custom model phase
+- `src/tabpfn_pipeline.py`: runnable TabPFN v2 inference pipeline
+- `src/features.py`: reusable feature engineering helpers
+- `src/modeling_stub.py`: device-aware PyTorch 2 model scaffolds for custom modeling
 - `report/executive_summary.md`: polished stakeholder-facing summary
 - `report/technical_report.md`: modeling, evaluation, and deployment notes
 
@@ -97,7 +97,7 @@ TabPFNClassifier.create_default_for_version(ModelVersion.V2)
 Why this is a good fit here:
 
 - it gives a strong tabular baseline without a long training loop
-- it is attractive for a take-home because the setup is compact and the workflow is easy to explain
+- it offers a compact setup and a workflow that is easy to explain and operate
 - it works well when we convert mixed marketplace data into scalar features, including categorical IDs and lightweight text-derived signals
 
 Current TabPFN feature blocks include:

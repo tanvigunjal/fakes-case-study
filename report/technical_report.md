@@ -33,7 +33,7 @@ For the minimum viable model, the repo should use **TabPFN v2 as the core classi
 Why this is a strong choice here:
 
 - It gives a high-quality tabular baseline without a long training loop.
-- It is ideal for a take-home setting where the focus is practical delivery rather than GPU-heavy optimization.
+- It is well suited to a practical delivery setting where the focus is reliable results rather than GPU-heavy optimization.
 - It is easier to run on mixed hardware environments than a custom deep model training stack.
 - It lets us move quickly while still preserving a strong modeling story.
 
@@ -162,7 +162,7 @@ Recommended deployment shape:
 
 ## 8. Concrete Next Steps
 
-If we continue beyond Phase 1, the next implementation steps should be:
+The next implementation steps should be:
 
 1. Run the TabPFN v2 pipeline end to end on the target hardware.
 2. Compare full-data versus smaller CPU smoke-test runs.
@@ -182,4 +182,4 @@ The current repository already contains the building blocks for this plan:
 - `src/tabpfn_pipeline.py` provides the minimum viable TabPFN v2 inference workflow.
 - `src/modeling_stub.py` provides CPU/GPU-aware PyTorch scaffolding.
 
-That means the codebase now has both a practical MVP model path and a clear upgrade path for a later custom modeling phase.
+That means the codebase now has both a practical MVP model path and a clear upgrade path for custom modeling if needed.

@@ -1,3 +1,3 @@
 # Report Outputs
 
-This directory contains the human-readable executive summary deliverable.
+This directory contains the human-readable reporting outputs.
