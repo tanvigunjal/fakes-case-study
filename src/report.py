@@ -27,6 +27,12 @@ def fmt_pct(value: float) -> str:
     return f"{value:.1f}%"
 
 
+def humanize_label(value: str) -> str:
+    if value == "<MISSING>":
+        return "Missing value"
+    return value
+
+
 def top_group(summary: dict[str, object], column: str) -> dict[str, object]:
     rows = summary["grouped_fake_rates"].get(column, [])
     return rows[0] if rows else {"label": "n/a", "fake_rate": 0.0, "count": 0}
@@ -69,7 +75,7 @@ def build_report(summary: dict[str, object]) -> str:
     ]
 
     stakeholder_table = [
-        {"signal": "DeliveryCategory", "observation": f"{delivery_top['label']} has the highest fake rate among large buckets", "why_it_matters": "Strongly predictive, but may encode process artifacts rather than intrinsic product quality."},
+        {"signal": "DeliveryCategory", "observation": f"{humanize_label(delivery_top['label'])} has the highest fake rate among large buckets", "why_it_matters": "Strongly predictive, but may encode process artifacts rather than intrinsic product quality."},
         {"signal": "Review stars", "observation": "1-star reviews are disproportionately fake-heavy", "why_it_matters": "Useful for triage, but risky if reviews are synthetic or unavailable at listing time."},
         {"signal": "Repeated products", "observation": f"{repeated['repeated_product_names']} product names repeat across the dataset", "why_it_matters": "Entity leakage is a real evaluation risk and needs split discipline."},
         {"signal": "Price references", "observation": f"ConfirmedPrice median is {confirmed_row['real_p50']:.2f} for real vs {confirmed_row['fake_p50']:.2f} for fake", "why_it_matters": "Relative price gaps look promising for a compact tabular model later on."},
@@ -93,7 +99,7 @@ def build_report(summary: dict[str, object]) -> str:
         "",
         f"The most important operational takeaway is that the dataset contains both **meaningful product-risk signals** and **suspicious shortcut signals**. For example, delivery metadata and explicit review-star language appear unusually predictive. That can be useful for triage, but it also means a model could look strong offline while learning artifacts that may not hold up in production.",
         "",
-        f"The highest-risk delivery bucket in the current sample is **{delivery_top['label']}** with a fake rate of **{fmt_pct(delivery_top['fake_rate'])}** across **{delivery_top['count']} rows**. Among large geographies, **{city_top['label']}** shows the highest fake rate in the current slice, and **{category_top['label']}** is the most exposed broad category with enough support to matter operationally.",
+        f"The highest-risk delivery bucket in the current sample is **{humanize_label(delivery_top['label'])}** with a fake rate of **{fmt_pct(delivery_top['fake_rate'])}** across **{delivery_top['count']} rows**. Among large geographies, **{humanize_label(city_top['label'])}** shows the highest fake rate in the current slice, and **{humanize_label(category_top['label'])}** is the most exposed broad category with enough support to matter operationally.",
         "",
         "## Data Quality And Evaluation Risks",
         "",
